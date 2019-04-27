@@ -1,4 +1,4 @@
-# cloudmatter-docker
+# cloudmapper-docker
 
 ## TL;DR
 
