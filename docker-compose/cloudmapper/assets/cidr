@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "cidr: too few arguments" 1>&2
+    echo "cidr [add|remove] CIDR CIDR_NAME" 1>&2
+    exit 1
+fi
+
+if test $1 != "add" -a $1 != "remove" ; then
+  echo No order is specified.
+  echo "cidr [add|remove] CIDR CIDR_NAME" 1>&2
+  exit 1
+fi
+
+ARGS="${3:+--name $3}"
+
+python3 cloudmapper.py configure ${1}-cidr --config-file config.json --cidr $2 $ARGS
+redraw

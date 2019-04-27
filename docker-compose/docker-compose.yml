@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  cloudmapper:
+    image: k-shino/cloudmapper
+#    command: -x
+    build: ./cloudmapper
+    ports:
+      - "8000:8000/tcp"
+    #network_mode: "host"
+    environment:
+      - ACCESS_KEY=$AWS_ACCESS_KEY
+      - SECRET_KEY=$AWS_SECRET_KEY
+      - NAME=$AWS_NAME
+      - ID=$AWS_ID
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+        application: "cloudmapper"
+    logging:
+      driver: "json-file" # defaults if not specified
+      options:
+        max-size: "100m"
+        max-file: "3"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: any
+    healthcheck:
+      interval: 86400s
+      timeout: 10s
+      retries: 1
+      start_period: 30s

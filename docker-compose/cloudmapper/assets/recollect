@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ARGS="${*:---no-internal-edges}"
+
+python3 cloudmapper.py collect --clean
+python3 cloudmapper.py prepare $ARGS
