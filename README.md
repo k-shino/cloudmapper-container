@@ -74,3 +74,8 @@
 ```bash
 docker-compose -f ./docker-compose.yml -p cloudmapper stop
 ```
+
+## 定期状態更新の確認方法
+```bash
+docker inspect --format "{{json .State.Health }}" cloudmapper_cloudmapper_1 | jq .
+```
