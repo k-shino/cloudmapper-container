@@ -30,8 +30,16 @@
   ```
 
   ```bash
-  k-shino@bastion:~/Codes/cloudmapper-docker/docker-compose/cloudmapper$ docker-compose stop
-  Stopping docker-compose_cloudmapper_1 ... done
+  k-shino@alpha:~/cloudmapper-container/docker-compose$ docker-compose -f docker-compose.yml -p cloudmapper up -d
+  WARNING: Some services (cloudmapper) use the 'deploy' key, which will be ignored. Compose does not support 'deploy' configuration - use `docker stack deploy` to deploy to a swarm.
+  WARNING: The Docker Engine you're using is running in swarm mode.
+  
+  Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+  
+  To deploy your application across the swarm, use `docker stack deploy`.
+  
+  Creating network "cloudmapper_default" with the default driver
+  Creating cloudmapper_cloudmapper_1 ... done
   ```
 
   `WARNING`が出ている場合，環境変数が未設定であったり，AWSアクセスキー，AWSシークレットキーに誤りがある場合がある．
