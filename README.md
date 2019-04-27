@@ -11,6 +11,7 @@
   * `AWS_ID` : AWSアカウントのIDを設定する．アカウントIDがわからない場合は[こちら](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html)を参照．[123456789012]
   * `AWS_ACCESS_KEY` : AWSアカウントのリソース情報取得のためのAWSアクセスキーを設定．必要な権限は[こちら](https://github.com/duo-labs/cloudmapper#aws-privileges-required)を参照．[AAAAA]
   * `AWS_SECRET_KEY` : 上述のAWSアクセスキーに紐づくAWSシークレットキーを設定．[AAAAA]
+
   設定例：
   ```bash
   export AWS_NAME=prod
