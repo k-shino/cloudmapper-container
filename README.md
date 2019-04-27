@@ -42,7 +42,7 @@
   Creating cloudmapper_cloudmapper_1 ... done
   ```
 
-  `WARNING`が出ている場合，環境変数が未設定であったり，AWSアクセスキー，AWSシークレットキーに誤りがある場合がある．
+  上記以外の`WARNING`が出ている場合，環境変数が未設定であったり，AWSアクセスキー，AWSシークレットキーに誤りがある場合がある．
 
 ## 使用方法
 
