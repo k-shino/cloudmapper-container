@@ -1,6 +1,11 @@
 import json
+import sys
 
 def main():
+    args = sys.argv
+
+    target=args[1]
+
     f = open("data.json", 'r')
 
     #ココ重要！！
@@ -13,6 +18,8 @@ def main():
 #        for i in range(len(json_data[name]["BWH"])):
 #            print("{}".format(json_data[name]["BWH"][i]),end="\t")
 #        print()
+
+    #target="c-plane"
 
     outlist=[]
     ec2list=[]
@@ -33,8 +40,16 @@ def main():
         else:
             outlist.append(instance)
 
-    print("CIDR: ",cidr)
+#    print("CIDR: ",cidr)
 
+    for this_cidr in cidr:
+        #print("this_cidr:",this_cidr)
+        if target in this_cidr['name']:
+            target_subnet=this_cidr['subnet']
+            target_arn=this_cidr['id']
+
+    print("target subnet:",target_subnet)
+    print("target arn:",target_arn)
     #print("outlist",outlist)
     #print("ec2list",ec2list)
 
@@ -42,5 +57,6 @@ def main():
     outlist += ec2list
 
     json.dump(outlist,fw,indent=4)
+
 if __name__=='__main__':
     main()
