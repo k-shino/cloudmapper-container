@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "draw_subnet: too few arguments" 1>&2
+    echo "draw_subnet SUBNET_NAME" 1>&2
+    exit 1
+fi
+
+python3 scrape.py $1

@@ -14,10 +14,12 @@ RUN pipenv install --skip-lock --system
 #COPY ./assets/config.json /root/cloudmapper/config.json
 COPY ./assets/config.json /root/cloudmapper/
 COPY ./assets/entrypoint.sh /root/cloudmapper/
+COPY ./assets/scrape.py /root/cloudmapper/
 COPY ./assets/.aws/ /root/.aws/
 COPY ./assets/redraw /bin/
 COPY ./assets/recollect /bin/
 COPY ./assets/cidr /bin/
+COPY ./assets/draw_subnet /bin/
 
 EXPOSE 8000
 ENTRYPOINT ["/root/cloudmapper/entrypoint.sh"]
