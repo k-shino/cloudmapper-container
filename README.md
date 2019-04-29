@@ -69,7 +69,16 @@
   docker-compose -f docker-compose.yml -p cloudmapper exec cloudmapper cidr add 1.1.1.1/32 hoge
   docker-compose -f docker-compose.yml -p cloudmapper exec cloudmapper cidr remove 1.1.1.1/32
   ```
-
+* ec2インスタンスが複数のNICを持つ場合，特定のsubnetに紐づくように表示させたい場合，以下のコマンドを入力する．
+  ```bash
+  docker-compose -f docker-compose.yml -p cloudmapper exec cloudmapper draw_subnet サブネット名
+  ```
+  
+  例：
+  ```bash
+  docker-compose -f docker-compose.yml -p cloudmapper exec cloudmapper draw_subnet c-plane
+  ```
+  
 ## 停止方法
 ```bash
 docker-compose -f ./docker-compose.yml -p cloudmapper stop
